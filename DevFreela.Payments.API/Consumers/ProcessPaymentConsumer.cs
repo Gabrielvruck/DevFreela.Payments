@@ -47,7 +47,7 @@ namespace DevFreela.Payments.API.Consumers
                 var paymentInfo = JsonSerializer.Deserialize<PaymentInfoInputModel>(paymentInfoJson);
                 ProcessPayment(paymentInfo);
 
-                var paymentApproved = new PaymentApprovedIntegrationEvent(paymentInfo.IdProject);
+                var paymentApproved = new PaymentApprovedIntegrationEvent(paymentInfo.Id);
                 var paymentApprovedJson = JsonSerializer.Serialize(paymentApproved);
                 var paymentApprovedBytes = Encoding.UTF8.GetBytes(paymentApprovedJson);
 
